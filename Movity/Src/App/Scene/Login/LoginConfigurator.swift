@@ -6,13 +6,12 @@ class LoginConfigurator {
         let presenter = LoginPresenterImp(view,
                                           router,
                                           DI.resolve(),
-                                          DI.resolve(),
                                           DI.resolve())
         view.presenter = presenter
     }
 
     static func open(navigationController: UINavigationController) {
-        let view = R.storyboard.loginStoryboard.instantiateInitialViewController()
+        let view = R.storyboard.loginStoryboard.loginViewController()
         LoginConfigurator().configure(view: view!)
         navigationController.isNavigationBarHidden = true
         navigationController.navigationItem.hidesBackButton = true

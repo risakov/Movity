@@ -10,6 +10,7 @@ class LoginRouter: BaseRouter {
     
     func openRegistrationScene() {
         if let navController = self.view.navigationController {
+            RegistrationConfigurator.open(navigationController: navController)
         }
     }
     

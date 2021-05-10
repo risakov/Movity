@@ -89,7 +89,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
   struct storyboard {
     /// Storyboard `BottomSheetStoryboard`.
     static let bottomSheetStoryboard = _R.storyboard.bottomSheetStoryboard()
@@ -103,6 +103,8 @@ struct R: Rswift.Validatable {
     static let loginStoryboard = _R.storyboard.loginStoryboard()
     /// Storyboard `MainMapStoryboard`.
     static let mainMapStoryboard = _R.storyboard.mainMapStoryboard()
+    /// Storyboard `RegistrationStoryboard`.
+    static let registrationStoryboard = _R.storyboard.registrationStoryboard()
     /// Storyboard `Root`.
     static let root = _R.storyboard.root()
 
@@ -149,6 +151,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "RegistrationStoryboard", bundle: ...)`
+    static func registrationStoryboard(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.registrationStoryboard)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Root", bundle: ...)`
     static func root(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.root)
@@ -159,7 +168,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 13 colors.
+  /// This `R.color` struct is generated, and contains static references to 14 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
@@ -185,6 +194,8 @@ struct R: Rswift.Validatable {
     static let switchThumb = Rswift.ColorResource(bundle: R.hostingBundle, name: "SwitchThumb")
     /// Color `SwitchTrack`.
     static let switchTrack = Rswift.ColorResource(bundle: R.hostingBundle, name: "SwitchTrack")
+    /// Color `VioletLight`.
+    static let violetLight = Rswift.ColorResource(bundle: R.hostingBundle, name: "VioletLight")
     /// Color `appGray`.
     static let appGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "appGray")
 
@@ -297,6 +308,15 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "VioletLight", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func violetLight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.violetLight, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIColor(named: "appGray", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
@@ -398,6 +418,14 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func switchTrack(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.switchTrack.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "VioletLight", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func violetLight(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.violetLight.name)
     }
     #endif
 
@@ -838,6 +866,9 @@ struct _R: Rswift.Validatable {
       try mainMapStoryboard.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try registrationStoryboard.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try root.validate()
       #endif
     }
@@ -927,15 +958,22 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct loginStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = LoginViewController
+      typealias InitialController = UIKit.UINavigationController
 
       let bundle = R.hostingBundle
+      let loginViewController = StoryboardViewControllerResource<LoginViewController>(identifier: "loginViewController")
       let name = "LoginStoryboard"
 
+      func loginViewController(_: Void = ()) -> LoginViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginViewController)
+      }
+
       static func validate() throws {
-        if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in storyboard 'LoginStoryboard', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "AppWhite", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'AppWhite' is used in storyboard 'LoginStoryboard', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "VioletLight", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'VioletLight' is used in storyboard 'LoginStoryboard', but couldn't be loaded.") }
         }
+        if _R.storyboard.loginStoryboard().loginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginViewController' could not be loaded from storyboard 'LoginStoryboard' as 'LoginViewController'.") }
       }
 
       fileprivate init() {}
@@ -958,6 +996,23 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.mainMapStoryboard().mainMapVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainMapVC' could not be loaded from storyboard 'MainMapStoryboard' as 'MainMapViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct registrationStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = RegistrationViewController
+
+      let bundle = R.hostingBundle
+      let name = "RegistrationStoryboard"
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "VioletLight", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'VioletLight' is used in storyboard 'RegistrationStoryboard', but couldn't be loaded.") }
+        }
       }
 
       fileprivate init() {}

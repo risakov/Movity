@@ -11,23 +11,20 @@ class LoginViewController: UIViewController, LoginView {
 
     @IBOutlet weak var loginButton: MTYDesignableButton!
     @IBOutlet weak var createAccountButton: MTYDesignableButton!
-    @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var passwordTextField: MFTextField!
     @IBOutlet weak var usernameTextField: MFTextField!
     @IBAction func onLoginButtonClick(_ sender: Any) {
         self.checkTextFieldsAndLogIn()
     }
     @IBAction func createAccount(_ sender: Any) {
-        self.presenter.sendRegistrationRequest()
-    }
-    @IBAction func onPasswordChangeButtonClick(_ sender: Any) {
-        self.presenter.openPasswordChangeScene()
+        self.presenter.openRegistrationScene()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         LoginConfigurator().configure(view: self)
         self.prepareTextFields()
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +78,7 @@ class LoginViewController: UIViewController, LoginView {
             self.showErrorDialog(message: message)
             return
         }
-//        self.presenter.signIn(username, password)
+        self.presenter.signIn(username: username, password: password)
     }
     
     func validateUsername() throws -> String {
@@ -135,5 +132,17 @@ extension LoginViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+extension LoginViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

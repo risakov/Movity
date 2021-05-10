@@ -8,13 +8,14 @@
 import UIKit
 
 enum MTYButtonState: Int {
-    case blue
+    case pink
     case clear
 }
 
 class MTYDesignableButton: DesignableUIButton {
     private var titleTemp: String?
-    public var buttonState: MTYButtonState = .blue
+    public var buttonState: MTYButtonState = .pink
+    
     @IBInspectable var IBButtonState: Int {
         get {
             return self.buttonState.rawValue
@@ -40,8 +41,8 @@ class MTYDesignableButton: DesignableUIButton {
         self.borderWidth = 1.0
         
         switch self.buttonState {
-        case .blue:
-            self.backgroundColor = UIColor.appBlue
+        case .pink:
+            self.backgroundColor = R.color.violetLight()
             self.borderColor = UIColor.smartBackground
             self.setTitleColor(.appWhite, for: self.state)
             self.setTitleColor(.appGray, for: .disabled)
@@ -52,11 +53,11 @@ class MTYDesignableButton: DesignableUIButton {
             
         case .clear:
             self.backgroundColor = UIColor.smartBackground
-            self.borderColor = UIColor.appBlue
-            self.setTitleColor(.appBlue, for: self.state)
-            self.titleLabel?.tintColor = .appBlue
-            self.imageView?.tintColor = .appBlue
-            self.tintColor = .appBlue
+            self.borderColor = R.color.violetLight()
+            self.setTitleColor(R.color.violetLight(), for: self.state)
+            self.titleLabel?.tintColor = R.color.violetLight()
+            self.imageView?.tintColor = R.color.violetLight()
+            self.tintColor = R.color.violetLight()
         }
         self.layoutSubviews()
     }

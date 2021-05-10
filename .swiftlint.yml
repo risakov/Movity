@@ -68,7 +68,7 @@ file_length:
   error: 1200
 
 function_body_length:
-  warning: 50
+  warning: 100
   error: 101
 
 warning_threshold: 600

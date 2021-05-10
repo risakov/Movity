@@ -3,7 +3,9 @@ import Foundation
 enum ErrorForTextField: LocalizedError {
     
     case nameFieldIsEmpty
-    case surnameFieldIsEmpty
+    case lastnameFieldIsEmpty
+    case patronymicFieldIsEmpty
+    case cityFieldIsEmpty
     case loginFieldIsEmpty
     case phoneFieldIsEmpty
     case emailFieldIsEmpty
@@ -35,8 +37,14 @@ enum ErrorForTextField: LocalizedError {
         case .nameFieldIsEmpty:
             return "Введите имя"
             
-        case .surnameFieldIsEmpty:
+        case .lastnameFieldIsEmpty:
             return "Введите фамилию"
+            
+        case .patronymicFieldIsEmpty:
+            return "Введите отчество"
+            
+        case .cityFieldIsEmpty:
+            return "Введите город"
             
         case .phoneOrEmailIsEmpty:
             return "Введите e-mail или телефон"
