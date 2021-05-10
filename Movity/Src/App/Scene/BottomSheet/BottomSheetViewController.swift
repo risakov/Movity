@@ -9,11 +9,16 @@
 //
 
 import UIKit
-import SOPullUpView
+import UBottomSheet
+
+// Класс для определения нижней шторки.
 
 class BottomSheetViewController: UIViewController, BottomSheetView {
     var presenter: BottomSheetPresenter!
     
+    // Координатор, который у каждой созданной шторки свой, он позволяет выполнять различные действия с ней: тянуть, скрывать, добавлять, удалять и т.д. Подробнее смотри в под
+    var sheetCoordinator: UBottomSheetCoordinator?
+
     @IBOutlet weak var handleArea: UIView!
     @IBOutlet weak var contentView: UIView!
     
@@ -24,10 +29,15 @@ class BottomSheetViewController: UIViewController, BottomSheetView {
     }
     
     // MARK: View lifecycle
-    
+
     override func viewDidLoad() {
+        presenter.setPlace()
         super.viewDidLoad()
-        setupHandleAreaView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        sheetCoordinator?.startTracking(item: self)
     }
     
     func setupHandleAreaView() {
@@ -36,14 +46,8 @@ class BottomSheetViewController: UIViewController, BottomSheetView {
     
 }
 
-// MARK: - SOPullUpViewDelegate
-
-extension BottomSheetViewController: SOPullUpViewDelegate {
-    func pullUpViewStatus(_ sender: UIViewController, didChangeTo status: PullUpStatus) {
-        print("SOPullUpView status is \(status)")
-    }
+// Подписался на Draggable как в примере пода. Может понадобиться для добавления в шторку UITableView
+extension BottomSheetViewController: Draggable {
     
-    func pullUpHandleArea(_ sender: UIViewController) -> UIView {
-        return handleArea
-    }
 }
+

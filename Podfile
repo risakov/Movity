@@ -20,6 +20,7 @@ target 'Movity' do
   pod 'SOPullUpView', :inhibit_warnings => true
   pod 'YandexMapsMobile', '4.0.0-full'
   pod 'Alamofire'
+  pod 'UBottomSheet'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|

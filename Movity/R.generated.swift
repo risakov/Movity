@@ -846,18 +846,20 @@ struct _R: Rswift.Validatable {
     struct bottomSheetStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = BottomSheetViewController
 
-      let bottomSheetVC = StoryboardViewControllerResource<BottomSheetViewController>(identifier: "bottomSheetVC")
+      let bottomSheetViewController = StoryboardViewControllerResource<BottomSheetViewController>(identifier: "bottomSheetViewController")
       let bundle = R.hostingBundle
       let name = "BottomSheetStoryboard"
 
-      func bottomSheetVC(_: Void = ()) -> BottomSheetViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bottomSheetVC)
+      func bottomSheetViewController(_: Void = ()) -> BottomSheetViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bottomSheetViewController)
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "bottom_sheet_upper", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bottom_sheet_upper' is used in storyboard 'BottomSheetStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ei_location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ei_location' is used in storyboard 'BottomSheetStoryboard', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.bottomSheetStoryboard().bottomSheetVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottomSheetVC' could not be loaded from storyboard 'BottomSheetStoryboard' as 'BottomSheetViewController'.") }
+        if _R.storyboard.bottomSheetStoryboard().bottomSheetViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottomSheetViewController' could not be loaded from storyboard 'BottomSheetStoryboard' as 'BottomSheetViewController'.") }
       }
 
       fileprivate init() {}
@@ -944,20 +946,21 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct mainMapStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MainMapViewController
+      typealias InitialController = PointOfDeliveryMapViewController
 
       let bundle = R.hostingBundle
-      let mainMapVC = StoryboardViewControllerResource<MainMapViewController>(identifier: "mainMapVC")
       let name = "MainMapStoryboard"
+      let pointOfDeliveryMapVC = StoryboardViewControllerResource<PointOfDeliveryMapViewController>(identifier: "pointOfDeliveryMapVC")
 
-      func mainMapVC(_: Void = ()) -> MainMapViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: mainMapVC)
+      func pointOfDeliveryMapVC(_: Void = ()) -> PointOfDeliveryMapViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: pointOfDeliveryMapVC)
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "bottom_sheet_upper", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bottom_sheet_upper' is used in storyboard 'MainMapStoryboard', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.mainMapStoryboard().mainMapVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainMapVC' could not be loaded from storyboard 'MainMapStoryboard' as 'MainMapViewController'.") }
+        if _R.storyboard.mainMapStoryboard().pointOfDeliveryMapVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'pointOfDeliveryMapVC' could not be loaded from storyboard 'MainMapStoryboard' as 'PointOfDeliveryMapViewController'.") }
       }
 
       fileprivate init() {}
