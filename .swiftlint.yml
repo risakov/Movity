@@ -1,0 +1,129 @@
+included:
+  - Movity/Src
+  
+excluded:
+  - Pods
+  
+disabled_rules: # rule identifiers to exclude from running
+  - cyclomatic_complexity
+  - trailing_whitespace
+ # - switch_case_alignment #
+  - todo
+  - identifier_name
+  - line_length
+ # - operator_whitespace
+  - force_cast
+  - force_try
+  - legacy_hashing
+  - attributes
+  - closure_end_indentation
+  - object_literal
+  - type_name
+  - trailing_newline
+ # - vertical_whitespace
+  - weak_delegate
+  - empty_count
+  - function_parameter_count
+  - orphaned_doc_comment
+
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - closure_spacing
+  - overridden_super_call
+  - redundant_nil_coalescing
+  - nimble_operator
+  - attributes
+  - operator_usage_whitespace
+  - closure_end_indentation
+  - first_where
+  - object_literal
+  - number_separator
+  - prohibited_super_call
+  - fatal_error_message
+  - explicit_self
+  - multiline_argoments
+  - vertical_whitespace_between_cases
+
+
+number_separator:
+  minimum_length: 5
+
+fatal_error_message: error
+control_statement: error
+comma: error
+opening_brace: error
+empty_count: error
+legacy_constructor: error
+legacy_constant: error
+trailing_semicolon: error
+weak_delegate: error
+
+type_body_length:
+  - 500 # warning
+  - 700 # error
+
+file_length:
+  warning: 500
+  error: 1200
+
+function_body_length:
+  warning: 50
+  error: 101
+
+warning_threshold: 600
+
+
+#reporter: "html" 
+reporter: "xcode" 
+
+# reporter type (xcode, json, csv, checkstyle)
+
+#custom_rules:
+#  empty_line_before_closing_brace: # from https://github.com/brandenr/swiftlintconfig
+#    name: "Empty Line before closing brace"
+#    regex: '(^[ a-zA-Z ]*(?:protocol|extension|class|struct) (?!(?:var|let))[ a-zA-Z:]*\{\n *\S+)'
+#    message: "There should be an empty line after a declaration"
+#    severity: error
+#  comments_space: # from https://github.com/brandenr/swiftlintconfig
+#    name: "Space After Comment"
+#    regex: '(^ *//\w+)'
+#    message: "There should be a space after //"
+#    severity: error
+#  comments_capitalized_ignore_possible_code: # from https://github.com/brandenr/swiftlintconfig
+#    name: "Capitalize First Word In Comment"
+#    regex: '(^ +// +(?!swiftlint)[a-z]+)'
+#    message: "The first word of a comment should be capitalized"
+#    severity: error
+#  comments_capitalized_find_possible_code: # from https://github.com/brandenr/swiftlintconfig
+#    name: "Catch Commented Out Code"
+#    regex: '(^ *// +(?!swiftlint)[a-z]+)'
+#    message: "The first word of a comment should be capitalized"
+#    severity: warning
+#  empty_first_line: # from https://github.com/brandenr/swiftlintconfig
+#    name: "Empty First Line"
+#    regex: '(^[ a-zA-Z ]*(?:protocol|extension|class|struct) (?!(?:var|let))[ a-zA-Z:]*\{\n *\S+)'
+#    message: "There should be an empty line after a declaration"
+#    severity: error
+#  empty_line_after_guard: # from https://github.com/brandenr/swiftlintconfig
+#    name: "Empty Line After Guard"
+#    regex: '(^ *guard[ a-zA-Z0-9=?.\(\),><!]*\{[ a-zA-Z0-9=?.\(\),><!]*\}\n *(?!(?:return|guard))\S+)'
+#    message: "There should be an empty line after a guard"
+#    severity: error
+#  empty_line_after_super: # from https://github.com/brandenr/swiftlintconfig
+#    name: "Empty Line After Super"
+#    regex: '(^ *super\.[ a-zA-Z0-9=?.\(\)\{\}:,><!]*\n *(?!(?:\}|return))\S+)'
+#    message: "There should be an empty line after super"
+#    severity: error
+#  unnecessary_type: # from https://github.com/brandenr/swiftlintconfig
+#    name: "Unnecessary Type"
+#    regex: '[ a-zA-Z0-9]*(?:let|var) [ a-zA-Z0-9]*: ([a-zA-Z0-9]*)[\? ]*= \1'
+#    message: "Type Definition Not Needed"
+#    severity: error
+#  double_space: # from https://github.com/IBM-Swift/Package-Builder
+#    include: "*.swift"
+#    name: "Double space"
+#    regex: '([a-z,A-Z] \s+)'
+#    message: "Double space between keywords"
+#    match_kinds: keyword
+#    severity: warning

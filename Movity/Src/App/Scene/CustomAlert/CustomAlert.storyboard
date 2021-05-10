@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="12z-fL-jQI">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Custom Alert View Controller-->
+        <scene sceneID="Fb4-Ak-6Cc">
+            <objects>
+                <viewController storyboardIdentifier="paymentAlertVC" id="12z-fL-jQI" customClass="CustomAlertViewController" customModule="CardioBit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bbX-QU-MLS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-nH-gLK" customClass="DesignableUIView" customModule="CardioBit" customModuleProvider="target">
+                                <rect key="frame" x="53" y="265" width="308" height="376.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Покупка видео PRO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-TB-hg1">
+                                        <rect key="frame" x="16" y="20" width="276" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="gd8-ju-frq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" name="AppBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vy-Qk-CvB">
+                                        <rect key="frame" x="16" y="60.5" width="276" height="250"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="twV-2o-3ny"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drx-28-YuL" customClass="DesignableUIButton" customModule="CardioBit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="330.5" width="308" height="46"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="95Z-mb-PNe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Хорошо">
+                                            <color key="titleColor" name="AppBlue"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onOkButtonTap:" destination="12z-fL-jQI" eventType="touchUpInside" id="5SF-O7-czt"/>
+                                        </connections>
+                                    </button>
+                                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="984-hp-f0Y" userLabel="Separator">
+                                        <rect key="frame" x="0.0" y="330.5" width="308" height="1"/>
+                                        <color key="backgroundColor" name="AppPlaceHolderGray"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="5vS-Pv-IH5"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="984-hp-f0Y" firstAttribute="width" secondItem="mvi-nH-gLK" secondAttribute="width" id="3EB-uo-W52"/>
+                                    <constraint firstItem="984-hp-f0Y" firstAttribute="top" secondItem="drx-28-YuL" secondAttribute="top" id="7BM-HD-FIR"/>
+                                    <constraint firstItem="q3c-TB-hg1" firstAttribute="leading" secondItem="mvi-nH-gLK" secondAttribute="leading" constant="16" id="88g-he-hic"/>
+                                    <constraint firstItem="q3c-TB-hg1" firstAttribute="top" secondItem="mvi-nH-gLK" secondAttribute="top" constant="20" id="OuQ-6d-Ubn"/>
+                                    <constraint firstAttribute="bottom" secondItem="drx-28-YuL" secondAttribute="bottom" id="Qtl-F6-xn0"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Vy-Qk-CvB" secondAttribute="trailing" constant="16" id="QvR-XA-l47"/>
+                                    <constraint firstItem="9Vy-Qk-CvB" firstAttribute="bottom" secondItem="drx-28-YuL" secondAttribute="top" constant="-20" id="Uff-er-cai"/>
+                                    <constraint firstItem="9Vy-Qk-CvB" firstAttribute="top" secondItem="q3c-TB-hg1" secondAttribute="bottom" constant="20" id="Uxc-4p-9kl"/>
+                                    <constraint firstItem="9Vy-Qk-CvB" firstAttribute="leading" secondItem="mvi-nH-gLK" secondAttribute="leading" constant="16" id="X7m-sC-sQx"/>
+                                    <constraint firstItem="drx-28-YuL" firstAttribute="centerX" secondItem="mvi-nH-gLK" secondAttribute="centerX" id="htL-DE-vqL"/>
+                                    <constraint firstItem="drx-28-YuL" firstAttribute="width" secondItem="mvi-nH-gLK" secondAttribute="width" id="i7A-te-cu7"/>
+                                    <constraint firstAttribute="trailing" secondItem="q3c-TB-hg1" secondAttribute="trailing" constant="16" id="lKb-lX-vqc"/>
+                                    <constraint firstAttribute="width" constant="308" id="lvT-YI-moA"/>
+                                    <constraint firstItem="984-hp-f0Y" firstAttribute="centerX" secondItem="mvi-nH-gLK" secondAttribute="centerX" id="s4k-3a-awA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yWC-Jr-vfD"/>
+                        <constraints>
+                            <constraint firstItem="mvi-nH-gLK" firstAttribute="centerY" secondItem="yWC-Jr-vfD" secondAttribute="centerY" id="PIw-2I-SHw"/>
+                            <constraint firstItem="mvi-nH-gLK" firstAttribute="centerX" secondItem="yWC-Jr-vfD" secondAttribute="centerX" id="e2K-6f-SvN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DWp-lW-5e0"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="9Vy-Qk-CvB" id="fZF-SS-NZq"/>
+                        <outlet property="okButton" destination="drx-28-YuL" id="4Cw-Jb-Rqb"/>
+                        <outlet property="titleLabel" destination="q3c-TB-hg1" id="0yp-ZV-cXF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXB-Y5-Ffn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2813.04347826087" y="-1256.25"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="drx-28-YuL">
+            <size key="intrinsicContentSize" width="64" height="33"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="AppBlue">
+            <color red="0.3529999852180481" green="0.5220000147819519" blue="0.95800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppPlaceHolderGray">
+            <color red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
