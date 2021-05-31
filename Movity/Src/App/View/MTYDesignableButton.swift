@@ -67,9 +67,6 @@ class MTYDesignableButton: DesignableUIButton {
         self.titleTemp = self.title(for: .normal)
         self.setTitle(nil, for: .normal)
         self.imageView?.contentMode = .scaleAspectFit
-        let loaderImage = R.image.loaderIcon()?
-            .withRenderingMode(.alwaysTemplate)
-        self.setImage(loaderImage, for: .normal)
         self.imageView?.startRotating()
         self.setNeedsDisplay()
     }

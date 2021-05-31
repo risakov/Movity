@@ -28,10 +28,10 @@ class AuthUseCaseImp: AuthUseCase {
     
     var account: UserEntity? {
         get {
-            return settings.account
+            return settings.user
         }
         set(acc) {
-            settings.account = acc
+            settings.user = acc
         }
     }
     

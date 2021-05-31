@@ -11,5 +11,12 @@
 import Foundation
 
 protocol MainMapPresenter {
+    // Геттер для массива точек
+    func getVehicles() -> [VehicleEntity]
+    // Функция для конфигурации шторки
+    func showBottomSheet(view: BottomSheetViewController,
+                         currentVehicle: VehicleEntity,
+                         delegate: MainMapDelegate)
     
+    func viewDidLoad()
 }

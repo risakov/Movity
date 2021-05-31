@@ -11,7 +11,4 @@ struct CreateRegistrationRequestEntity: JsonBodyConvertible {
     let name: String
     let lastname: String
     let patronymic: String
-    let gender: String
-    let cityname: String
-    let birthDate: String
 }

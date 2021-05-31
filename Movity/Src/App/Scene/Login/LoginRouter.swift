@@ -13,14 +13,12 @@ class LoginRouter: BaseRouter {
             RegistrationConfigurator.open(navigationController: navController)
         }
     }
-    
-    func openPermissionsRequestScreen() {
-        if let navController = self.view.navigationController {
-        }
+
+    func openMainScene() {
+        let rootView = R.storyboard.root.rootVC()!
+        let window = UIApplication.shared.delegate!.window!!
+        window.rootViewController = rootView
+        rootView.openMainMapScene()
     }
     
-    func openPasswordChangeScreen() {
-        if let navController = self.view.navigationController {
-        }
-    }
 }

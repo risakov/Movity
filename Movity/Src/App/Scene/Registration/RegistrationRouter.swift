@@ -18,9 +18,10 @@ class RegistrationRouter: BaseRouter {
         self.view = view
     }
     
-    func openSomeScene() {
-        if let navController = self.view.navigationController {
-            //  SomeSceneConfigurator.open(navigationController: navController)
-        }
+    func openMainScene() {
+        let rootView = R.storyboard.root.rootVC()!
+        let window = UIApplication.shared.delegate!.window!!
+        window.rootViewController = rootView
+        rootView.openMainMapScene()
     }
 }

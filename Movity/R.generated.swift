@@ -85,11 +85,12 @@ struct R: Rswift.Validatable {
   }
 
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
   struct storyboard {
     /// Storyboard `BottomSheetStoryboard`.
     static let bottomSheetStoryboard = _R.storyboard.bottomSheetStoryboard()
@@ -103,6 +104,8 @@ struct R: Rswift.Validatable {
     static let loginStoryboard = _R.storyboard.loginStoryboard()
     /// Storyboard `MainMapStoryboard`.
     static let mainMapStoryboard = _R.storyboard.mainMapStoryboard()
+    /// Storyboard `ProfileStoryboard`.
+    static let profileStoryboard = _R.storyboard.profileStoryboard()
     /// Storyboard `RegistrationStoryboard`.
     static let registrationStoryboard = _R.storyboard.registrationStoryboard()
     /// Storyboard `Root`.
@@ -147,6 +150,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "MainMapStoryboard", bundle: ...)`
     static func mainMapStoryboard(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.mainMapStoryboard)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "ProfileStoryboard", bundle: ...)`
+    static func profileStoryboard(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.profileStoryboard)
     }
     #endif
 
@@ -440,163 +450,282 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 33 images.
+  /// This `R.file` struct is generated, and contains static references to 13 files.
+  struct file {
+    /// Resource file `GoogleService-Info.plist`.
+    static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
+    /// Resource file `GothaProBla.otf`.
+    static let gothaProBlaOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProBla", pathExtension: "otf")
+    /// Resource file `GothaProBlaIta.otf`.
+    static let gothaProBlaItaOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProBlaIta", pathExtension: "otf")
+    /// Resource file `GothaProBol.otf`.
+    static let gothaProBolOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProBol", pathExtension: "otf")
+    /// Resource file `GothaProBolIta.otf`.
+    static let gothaProBolItaOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProBolIta", pathExtension: "otf")
+    /// Resource file `GothaProIta.otf`.
+    static let gothaProItaOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProIta", pathExtension: "otf")
+    /// Resource file `GothaProLig.otf`.
+    static let gothaProLigOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProLig", pathExtension: "otf")
+    /// Resource file `GothaProLigIta.otf`.
+    static let gothaProLigItaOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProLigIta", pathExtension: "otf")
+    /// Resource file `GothaProMed.otf`.
+    static let gothaProMedOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProMed", pathExtension: "otf")
+    /// Resource file `GothaProMedIta.otf`.
+    static let gothaProMedItaOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProMedIta", pathExtension: "otf")
+    /// Resource file `GothaProNarBol.otf`.
+    static let gothaProNarBolOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProNarBol", pathExtension: "otf")
+    /// Resource file `GothaProNarMed.otf`.
+    static let gothaProNarMedOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProNarMed", pathExtension: "otf")
+    /// Resource file `GothaProReg.otf`.
+    static let gothaProRegOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GothaProReg", pathExtension: "otf")
+
+    /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
+    static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.googleServiceInfoPlist
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProBla", withExtension: "otf")`
+    static func gothaProBlaOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProBlaOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProBlaIta", withExtension: "otf")`
+    static func gothaProBlaItaOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProBlaItaOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProBol", withExtension: "otf")`
+    static func gothaProBolOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProBolOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProBolIta", withExtension: "otf")`
+    static func gothaProBolItaOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProBolItaOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProIta", withExtension: "otf")`
+    static func gothaProItaOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProItaOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProLig", withExtension: "otf")`
+    static func gothaProLigOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProLigOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProLigIta", withExtension: "otf")`
+    static func gothaProLigItaOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProLigItaOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProMed", withExtension: "otf")`
+    static func gothaProMedOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProMedOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProMedIta", withExtension: "otf")`
+    static func gothaProMedItaOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProMedItaOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProNarBol", withExtension: "otf")`
+    static func gothaProNarBolOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProNarBolOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProNarMed", withExtension: "otf")`
+    static func gothaProNarMedOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProNarMedOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GothaProReg", withExtension: "otf")`
+    static func gothaProRegOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.gothaProRegOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.font` struct is generated, and contains static references to 12 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `GothamPro-BlackItalic`.
+    static let gothamProBlackItalic = Rswift.FontResource(fontName: "GothamPro-BlackItalic")
+    /// Font `GothamPro-Black`.
+    static let gothamProBlack = Rswift.FontResource(fontName: "GothamPro-Black")
+    /// Font `GothamPro-BoldItalic`.
+    static let gothamProBoldItalic = Rswift.FontResource(fontName: "GothamPro-BoldItalic")
+    /// Font `GothamPro-Bold`.
+    static let gothamProBold = Rswift.FontResource(fontName: "GothamPro-Bold")
+    /// Font `GothamPro-Italic`.
+    static let gothamProItalic = Rswift.FontResource(fontName: "GothamPro-Italic")
+    /// Font `GothamPro-LightItalic`.
+    static let gothamProLightItalic = Rswift.FontResource(fontName: "GothamPro-LightItalic")
+    /// Font `GothamPro-Light`.
+    static let gothamProLight = Rswift.FontResource(fontName: "GothamPro-Light")
+    /// Font `GothamPro-MediumItalic`.
+    static let gothamProMediumItalic = Rswift.FontResource(fontName: "GothamPro-MediumItalic")
+    /// Font `GothamPro-Medium`.
+    static let gothamProMedium = Rswift.FontResource(fontName: "GothamPro-Medium")
+    /// Font `GothamProNarrow-Bold`.
+    static let gothamProNarrowBold = Rswift.FontResource(fontName: "GothamProNarrow-Bold")
+    /// Font `GothamProNarrow-Medium`.
+    static let gothamProNarrowMedium = Rswift.FontResource(fontName: "GothamProNarrow-Medium")
+    /// Font `GothamPro`.
+    static let gothamPro = Rswift.FontResource(fontName: "GothamPro")
+
+    /// `UIFont(name: "GothamPro", size: ...)`
+    static func gothamPro(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamPro, size: size)
+    }
+
+    /// `UIFont(name: "GothamPro-Black", size: ...)`
+    static func gothamProBlack(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProBlack, size: size)
+    }
+
+    /// `UIFont(name: "GothamPro-BlackItalic", size: ...)`
+    static func gothamProBlackItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProBlackItalic, size: size)
+    }
+
+    /// `UIFont(name: "GothamPro-Bold", size: ...)`
+    static func gothamProBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProBold, size: size)
+    }
+
+    /// `UIFont(name: "GothamPro-BoldItalic", size: ...)`
+    static func gothamProBoldItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProBoldItalic, size: size)
+    }
+
+    /// `UIFont(name: "GothamPro-Italic", size: ...)`
+    static func gothamProItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProItalic, size: size)
+    }
+
+    /// `UIFont(name: "GothamPro-Light", size: ...)`
+    static func gothamProLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProLight, size: size)
+    }
+
+    /// `UIFont(name: "GothamPro-LightItalic", size: ...)`
+    static func gothamProLightItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProLightItalic, size: size)
+    }
+
+    /// `UIFont(name: "GothamPro-Medium", size: ...)`
+    static func gothamProMedium(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProMedium, size: size)
+    }
+
+    /// `UIFont(name: "GothamPro-MediumItalic", size: ...)`
+    static func gothamProMediumItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProMediumItalic, size: size)
+    }
+
+    /// `UIFont(name: "GothamProNarrow-Bold", size: ...)`
+    static func gothamProNarrowBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProNarrowBold, size: size)
+    }
+
+    /// `UIFont(name: "GothamProNarrow-Medium", size: ...)`
+    static func gothamProNarrowMedium(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: gothamProNarrowMedium, size: size)
+    }
+
+    static func validate() throws {
+      if R.font.gothamPro(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro' could not be loaded, is 'GothaProReg.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProBlack(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro-Black' could not be loaded, is 'GothaProBla.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProBlackItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro-BlackItalic' could not be loaded, is 'GothaProBlaIta.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro-Bold' could not be loaded, is 'GothaProBol.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro-BoldItalic' could not be loaded, is 'GothaProBolIta.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro-Italic' could not be loaded, is 'GothaProIta.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro-Light' could not be loaded, is 'GothaProLig.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProLightItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro-LightItalic' could not be loaded, is 'GothaProLigIta.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro-Medium' could not be loaded, is 'GothaProMed.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProMediumItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamPro-MediumItalic' could not be loaded, is 'GothaProMedIta.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProNarrowBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamProNarrow-Bold' could not be loaded, is 'GothaProNarBol.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.gothamProNarrowMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GothamProNarrow-Medium' could not be loaded, is 'GothaProNarMed.otf' added to the UIAppFonts array in this targets Info.plist?") }
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.image` struct is generated, and contains static references to 13 images.
   struct image {
-    /// Image `AttentionIcon`.
-    static let attentionIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "AttentionIcon")
-    /// Image `arrowLeft`.
-    static let arrowLeft = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrowLeft")
-    /// Image `autoRecordIcon`.
-    static let autoRecordIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "autoRecordIcon")
-    /// Image `batteryFull`.
-    static let batteryFull = Rswift.ImageResource(bundle: R.hostingBundle, name: "batteryFull")
-    /// Image `batteryLow`.
-    static let batteryLow = Rswift.ImageResource(bundle: R.hostingBundle, name: "batteryLow")
-    /// Image `batteryMid`.
-    static let batteryMid = Rswift.ImageResource(bundle: R.hostingBundle, name: "batteryMid")
-    /// Image `calendarIcon`.
-    static let calendarIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "calendarIcon")
-    /// Image `cancelIcon`.
-    static let cancelIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "cancelIcon")
-    /// Image `checkboxChecked`.
-    static let checkboxChecked = Rswift.ImageResource(bundle: R.hostingBundle, name: "checkboxChecked")
-    /// Image `checkboxUnchecked`.
-    static let checkboxUnchecked = Rswift.ImageResource(bundle: R.hostingBundle, name: "checkboxUnchecked")
-    /// Image `deviceButtonScheme`.
-    static let deviceButtonScheme = Rswift.ImageResource(bundle: R.hostingBundle, name: "deviceButtonScheme")
-    /// Image `deviceIcon`.
-    static let deviceIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "deviceIcon")
-    /// Image `deviceImage`.
-    static let deviceImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "deviceImage")
+    /// Image `bicyclePlacemark`.
+    static let bicyclePlacemark = Rswift.ImageResource(bundle: R.hostingBundle, name: "bicyclePlacemark")
+    /// Image `bike`.
+    static let bike = Rswift.ImageResource(bundle: R.hostingBundle, name: "bike")
+    /// Image `bottom_sheet_upper`.
+    static let bottom_sheet_upper = Rswift.ImageResource(bundle: R.hostingBundle, name: "bottom_sheet_upper")
+    /// Image `carPlacemark`.
+    static let carPlacemark = Rswift.ImageResource(bundle: R.hostingBundle, name: "carPlacemark")
+    /// Image `electricScooter`.
+    static let electricScooter = Rswift.ImageResource(bundle: R.hostingBundle, name: "electricScooter")
     /// Image `empty_background`.
     static let empty_background = Rswift.ImageResource(bundle: R.hostingBundle, name: "empty_background")
-    /// Image `eyeIcon`.
-    static let eyeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "eyeIcon")
     /// Image `favorits_background`.
     static let favorits_background = Rswift.ImageResource(bundle: R.hostingBundle, name: "favorits_background")
-    /// Image `filterIcon`.
-    static let filterIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "filterIcon")
-    /// Image `heartIcon-1`.
-    static let heartIcon1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "heartIcon-1")
-    /// Image `heartIcon`.
-    static let heartIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "heartIcon")
-    /// Image `infoIcon`.
-    static let infoIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "infoIcon")
-    /// Image `loaderIcon`.
-    static let loaderIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "loaderIcon")
+    /// Image `kiario`.
+    static let kiario = Rswift.ImageResource(bundle: R.hostingBundle, name: "kiario")
+    /// Image `kickScooterPlacemark`.
+    static let kickScooterPlacemark = Rswift.ImageResource(bundle: R.hostingBundle, name: "kickScooterPlacemark")
     /// Image `logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
-    /// Image `okInCircleImage`.
-    static let okInCircleImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "okInCircleImage")
     /// Image `photoPlaceholder`.
     static let photoPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "photoPlaceholder")
-    /// Image `pulseHeartIcon`.
-    static let pulseHeartIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "pulseHeartIcon")
-    /// Image `settingsIcon`.
-    static let settingsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "settingsIcon")
-    /// Image `smallArrowLeft`.
-    static let smallArrowLeft = Rswift.ImageResource(bundle: R.hostingBundle, name: "smallArrowLeft")
-    /// Image `smallArrowRight`.
-    static let smallArrowRight = Rswift.ImageResource(bundle: R.hostingBundle, name: "smallArrowRight")
-    /// Image `squareCheckBoxOff`.
-    static let squareCheckBoxOff = Rswift.ImageResource(bundle: R.hostingBundle, name: "squareCheckBoxOff")
-    /// Image `squareCheckBoxOn`.
-    static let squareCheckBoxOn = Rswift.ImageResource(bundle: R.hostingBundle, name: "squareCheckBoxOn")
-    /// Image `symptomIcon`.
-    static let symptomIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "symptomIcon")
-    /// Image `uploadIcon`.
-    static let uploadIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "uploadIcon")
-    /// Image `userIcon`.
-    static let userIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "userIcon")
+    /// Image `toyotaCorolla`.
+    static let toyotaCorolla = Rswift.ImageResource(bundle: R.hostingBundle, name: "toyotaCorolla")
+    /// Image `volkswagenPolo`.
+    static let volkswagenPolo = Rswift.ImageResource(bundle: R.hostingBundle, name: "volkswagenPolo")
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "AttentionIcon", bundle: ..., traitCollection: ...)`
-    static func attentionIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.attentionIcon, compatibleWith: traitCollection)
+    /// `UIImage(named: "bicyclePlacemark", bundle: ..., traitCollection: ...)`
+    static func bicyclePlacemark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bicyclePlacemark, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "arrowLeft", bundle: ..., traitCollection: ...)`
-    static func arrowLeft(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.arrowLeft, compatibleWith: traitCollection)
+    /// `UIImage(named: "bike", bundle: ..., traitCollection: ...)`
+    static func bike(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bike, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "autoRecordIcon", bundle: ..., traitCollection: ...)`
-    static func autoRecordIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.autoRecordIcon, compatibleWith: traitCollection)
+    /// `UIImage(named: "bottom_sheet_upper", bundle: ..., traitCollection: ...)`
+    static func bottom_sheet_upper(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bottom_sheet_upper, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "batteryFull", bundle: ..., traitCollection: ...)`
-    static func batteryFull(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.batteryFull, compatibleWith: traitCollection)
+    /// `UIImage(named: "carPlacemark", bundle: ..., traitCollection: ...)`
+    static func carPlacemark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.carPlacemark, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "batteryLow", bundle: ..., traitCollection: ...)`
-    static func batteryLow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.batteryLow, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "batteryMid", bundle: ..., traitCollection: ...)`
-    static func batteryMid(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.batteryMid, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "calendarIcon", bundle: ..., traitCollection: ...)`
-    static func calendarIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.calendarIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "cancelIcon", bundle: ..., traitCollection: ...)`
-    static func cancelIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.cancelIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "checkboxChecked", bundle: ..., traitCollection: ...)`
-    static func checkboxChecked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.checkboxChecked, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "checkboxUnchecked", bundle: ..., traitCollection: ...)`
-    static func checkboxUnchecked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.checkboxUnchecked, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "deviceButtonScheme", bundle: ..., traitCollection: ...)`
-    static func deviceButtonScheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.deviceButtonScheme, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "deviceIcon", bundle: ..., traitCollection: ...)`
-    static func deviceIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.deviceIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "deviceImage", bundle: ..., traitCollection: ...)`
-    static func deviceImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.deviceImage, compatibleWith: traitCollection)
+    /// `UIImage(named: "electricScooter", bundle: ..., traitCollection: ...)`
+    static func electricScooter(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.electricScooter, compatibleWith: traitCollection)
     }
     #endif
 
@@ -608,13 +737,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "eyeIcon", bundle: ..., traitCollection: ...)`
-    static func eyeIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.eyeIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "favorits_background", bundle: ..., traitCollection: ...)`
     static func favorits_background(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.favorits_background, compatibleWith: traitCollection)
@@ -622,37 +744,16 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "filterIcon", bundle: ..., traitCollection: ...)`
-    static func filterIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.filterIcon, compatibleWith: traitCollection)
+    /// `UIImage(named: "kiario", bundle: ..., traitCollection: ...)`
+    static func kiario(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.kiario, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "heartIcon", bundle: ..., traitCollection: ...)`
-    static func heartIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.heartIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "heartIcon-1", bundle: ..., traitCollection: ...)`
-    static func heartIcon1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.heartIcon1, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "infoIcon", bundle: ..., traitCollection: ...)`
-    static func infoIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.infoIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "loaderIcon", bundle: ..., traitCollection: ...)`
-    static func loaderIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.loaderIcon, compatibleWith: traitCollection)
+    /// `UIImage(named: "kickScooterPlacemark", bundle: ..., traitCollection: ...)`
+    static func kickScooterPlacemark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.kickScooterPlacemark, compatibleWith: traitCollection)
     }
     #endif
 
@@ -664,13 +765,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "okInCircleImage", bundle: ..., traitCollection: ...)`
-    static func okInCircleImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.okInCircleImage, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "photoPlaceholder", bundle: ..., traitCollection: ...)`
     static func photoPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.photoPlaceholder, compatibleWith: traitCollection)
@@ -678,65 +772,16 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "pulseHeartIcon", bundle: ..., traitCollection: ...)`
-    static func pulseHeartIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.pulseHeartIcon, compatibleWith: traitCollection)
+    /// `UIImage(named: "toyotaCorolla", bundle: ..., traitCollection: ...)`
+    static func toyotaCorolla(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.toyotaCorolla, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "settingsIcon", bundle: ..., traitCollection: ...)`
-    static func settingsIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.settingsIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "smallArrowLeft", bundle: ..., traitCollection: ...)`
-    static func smallArrowLeft(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.smallArrowLeft, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "smallArrowRight", bundle: ..., traitCollection: ...)`
-    static func smallArrowRight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.smallArrowRight, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "squareCheckBoxOff", bundle: ..., traitCollection: ...)`
-    static func squareCheckBoxOff(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.squareCheckBoxOff, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "squareCheckBoxOn", bundle: ..., traitCollection: ...)`
-    static func squareCheckBoxOn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.squareCheckBoxOn, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "symptomIcon", bundle: ..., traitCollection: ...)`
-    static func symptomIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.symptomIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "uploadIcon", bundle: ..., traitCollection: ...)`
-    static func uploadIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.uploadIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "userIcon", bundle: ..., traitCollection: ...)`
-    static func userIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.userIcon, compatibleWith: traitCollection)
+    /// `UIImage(named: "volkswagenPolo", bundle: ..., traitCollection: ...)`
+    static func volkswagenPolo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.volkswagenPolo, compatibleWith: traitCollection)
     }
     #endif
 
@@ -866,6 +911,9 @@ struct _R: Rswift.Validatable {
       try mainMapStoryboard.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try profileStoryboard.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try registrationStoryboard.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -877,18 +925,21 @@ struct _R: Rswift.Validatable {
     struct bottomSheetStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = BottomSheetViewController
 
-      let bottomSheetVC = StoryboardViewControllerResource<BottomSheetViewController>(identifier: "bottomSheetVC")
+      let bottomSheetViewController = StoryboardViewControllerResource<BottomSheetViewController>(identifier: "bottomSheetViewController")
       let bundle = R.hostingBundle
       let name = "BottomSheetStoryboard"
 
-      func bottomSheetVC(_: Void = ()) -> BottomSheetViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bottomSheetVC)
+      func bottomSheetViewController(_: Void = ()) -> BottomSheetViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bottomSheetViewController)
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "bottom_sheet_upper", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bottom_sheet_upper' is used in storyboard 'BottomSheetStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "kiario", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'kiario' is used in storyboard 'BottomSheetStoryboard', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "LabelGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'LabelGray' is used in storyboard 'BottomSheetStoryboard', but couldn't be loaded.") }
         }
-        if _R.storyboard.bottomSheetStoryboard().bottomSheetVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottomSheetVC' could not be loaded from storyboard 'BottomSheetStoryboard' as 'BottomSheetViewController'.") }
+        if _R.storyboard.bottomSheetStoryboard().bottomSheetViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottomSheetViewController' could not be loaded from storyboard 'BottomSheetStoryboard' as 'BottomSheetViewController'.") }
       }
 
       fileprivate init() {}
@@ -969,8 +1020,10 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in storyboard 'LoginStoryboard', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "AppWhite", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'AppWhite' is used in storyboard 'LoginStoryboard', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "LabelGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'LabelGray' is used in storyboard 'LoginStoryboard', but couldn't be loaded.") }
           if UIKit.UIColor(named: "VioletLight", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'VioletLight' is used in storyboard 'LoginStoryboard', but couldn't be loaded.") }
         }
         if _R.storyboard.loginStoryboard().loginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginViewController' could not be loaded from storyboard 'LoginStoryboard' as 'LoginViewController'.") }
@@ -1003,6 +1056,28 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    struct profileStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = ProfileViewController
+
+      let bundle = R.hostingBundle
+      let name = "ProfileStoryboard"
+      let profileViewController = StoryboardViewControllerResource<ProfileViewController>(identifier: "profileViewController")
+
+      func profileViewController(_: Void = ()) -> ProfileViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: profileViewController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.profileStoryboard().profileViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'profileViewController' could not be loaded from storyboard 'ProfileStoryboard' as 'ProfileViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     struct registrationStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = RegistrationViewController
 
@@ -1011,7 +1086,6 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "VioletLight", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'VioletLight' is used in storyboard 'RegistrationStoryboard', but couldn't be loaded.") }
         }
       }
 
@@ -1032,6 +1106,8 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "book") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'book' is used in storyboard 'Root', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "person") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'person' is used in storyboard 'Root', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.root().rootVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'rootVC' could not be loaded from storyboard 'Root' as 'RootViewController'.") }

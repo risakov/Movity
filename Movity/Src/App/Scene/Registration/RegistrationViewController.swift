@@ -17,7 +17,6 @@ class RegistrationViewController: UIViewController, RegistrationView {
     @IBOutlet weak var nameTextField: MFTextField!
     @IBOutlet weak var lastnameTextField: MFTextField!
     @IBOutlet weak var patronymicTextField: MFTextField!
-    @IBOutlet weak var cityTextField: MFTextField!
     @IBOutlet weak var passwordTextField: MFTextField!
     @IBOutlet weak var confirmPasswordTextField: MFTextField!
     @IBOutlet weak var signUpButton: MTYDesignableButton!
@@ -40,7 +39,6 @@ class RegistrationViewController: UIViewController, RegistrationView {
         self.nameTextField.delegate = self
         self.lastnameTextField.delegate = self
         self.patronymicTextField.delegate = self
-        self.cityTextField.delegate = self
         self.passwordTextField.delegate = self
         self.confirmPasswordTextField.delegate = self
         
@@ -59,10 +57,6 @@ class RegistrationViewController: UIViewController, RegistrationView {
         self.patronymicTextField.placeholderFont = UIFont.systemFont(ofSize: 13)
         self.patronymicTextField.placeholderColor = .lightGray
         self.patronymicTextField.addDoneButtonOnKeyboard()
-        
-        self.cityTextField.placeholderFont = UIFont.systemFont(ofSize: 13)
-        self.cityTextField.placeholderColor = .lightGray
-        self.cityTextField.addDoneButtonOnKeyboard()
         
         self.passwordTextField.placeholderFont = UIFont.systemFont(ofSize: 13)
         self.passwordTextField.placeholderColor = .lightGray
@@ -83,7 +77,6 @@ class RegistrationViewController: UIViewController, RegistrationView {
                 !self.nameTextField.text.isEmptyOrNil &&
                 !self.lastnameTextField.text.isEmptyOrNil &&
                 !self.patronymicTextField.text.isEmptyOrNil &&
-                !self.cityTextField.text.isEmptyOrNil &&
                 !self.passwordTextField.text.isEmptyOrNil &&
                 !self.confirmPasswordTextField.text.isEmptyOrNil else {
             self.signUpButton.isEnabled = false
@@ -100,7 +93,6 @@ class RegistrationViewController: UIViewController, RegistrationView {
         var name = ""
         var lastname = ""
         var patronymic = ""
-        var city = ""
         var hasErrors = false
         
         do {
@@ -132,13 +124,6 @@ class RegistrationViewController: UIViewController, RegistrationView {
         }
         
         do {
-            city = try self.validateCity()
-        } catch let error {
-            self.cityTextField.setError(error, animated: true)
-            hasErrors = true
-        }
-        
-        do {
             password = try self.validatePassword()
         } catch let error {
             self.passwordTextField.setError(error, animated: true)
@@ -152,8 +137,6 @@ class RegistrationViewController: UIViewController, RegistrationView {
             return
         }
         
-        let gender: Gender = .male
-        
         let entity = CreateRegistrationRequestApiEntity(
             user:
                 CreateRegistrationRequestEntity(
@@ -161,10 +144,7 @@ class RegistrationViewController: UIViewController, RegistrationView {
                     password: password,
                     name: name,
                     lastname: lastname,
-                    patronymic: patronymic,
-                    gender: gender.rawValue,
-                    cityname: city,
-                    birthDate: "21.09.1999"
+                    patronymic: patronymic
                 )
         )
         
@@ -220,18 +200,6 @@ class RegistrationViewController: UIViewController, RegistrationView {
         patronymic = validPatronymic
         
         return patronymic!
-    }
-    
-    func validateCity() throws -> String {
-        var city = self.cityTextField.text
-        guard let validCity = city,
-              !validCity.isEmpty else {
-            throw ErrorForTextField.cityFieldIsEmpty
-        }
-        
-        city = validCity
-        
-        return city!
     }
     
     func validatePassword() throws -> String {
@@ -304,9 +272,6 @@ extension RegistrationViewController: UITextFieldDelegate {
             self.patronymicTextField.becomeFirstResponder()
             
         case self.patronymicTextField:
-            self.cityTextField.becomeFirstResponder()
-            
-        case self.cityTextField:
             self.passwordTextField.becomeFirstResponder()
             
         case self.passwordTextField:

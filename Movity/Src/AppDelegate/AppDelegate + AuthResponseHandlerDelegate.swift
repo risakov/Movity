@@ -8,7 +8,7 @@ extension AppDelegate: AuthResponseHandlerDelegate {
         
         guard (self.window?.rootViewController as? UINavigationController)?.viewControllers.last as? LoginViewController != nil else {
             DispatchQueue.main.async {
-                self.openRootScreen()
+                self.openLoginScreen()
             }
             return
         }

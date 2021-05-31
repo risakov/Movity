@@ -1,71 +1,291 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MPm-Nf-wFF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0ZF-Va-wQS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothaProReg.otf">
+            <string>GothamPro</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Bottom Sheet View Controller-->
-        <scene sceneID="UUD-dF-DYS">
+        <scene sceneID="CHX-Ju-6tZ">
             <objects>
-                <viewController storyboardIdentifier="bottomSheetVC" id="MPm-Nf-wFF" customClass="BottomSheetViewController" customModule="Movity" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3Vy-eg-qZj">
+                <viewController storyboardIdentifier="bottomSheetViewController" id="0ZF-Va-wQS" customClass="BottomSheetViewController" customModule="Movity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FNG-sg-Wh7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAC-eB-Ubg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="20"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom_sheet_upper" translatesAutoresizingMaskIntoConstraints="NO" id="TpW-H0-apC">
+                                <rect key="frame" x="193" y="54" width="28" height="3"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1h4-Yj-GIJ">
+                                <rect key="frame" x="20" y="67" width="374" height="144"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dwf-34-3qV" customClass="DesignableUIView" customModule="Movity" customModuleProvider="target">
-                                        <rect key="frame" x="187" y="7.5" width="40" height="5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KIA Rio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETz-iG-I6u">
+                                        <rect key="frame" x="16" y="16" width="57" height="20"/>
+                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Машина комфорт класса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3En-e0-p1z">
+                                        <rect key="frame" x="16" y="40" width="237" height="13"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="5" id="5Bi-dF-24r"/>
-                                            <constraint firstAttribute="width" constant="40" id="KWn-2o-2vb"/>
+                                            <constraint firstAttribute="width" constant="237" id="R4H-FV-IwL"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="11"/>
+                                        <color key="textColor" name="LabelGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHW-JM-dAK" customClass="DesignableView" customModule="Movity" customModuleProvider="target">
+                                        <rect key="frame" x="273" y="10" width="85" height="25"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Р515НН" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Az-Oe-Ay7">
+                                                <rect key="frame" x="11.5" y="2.5" width="64" height="20"/>
+                                                <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="1Az-Oe-Ay7" firstAttribute="centerY" secondItem="iHW-JM-dAK" secondAttribute="centerY" id="hzs-BC-LJT"/>
+                                            <constraint firstItem="1Az-Oe-Ay7" firstAttribute="centerX" secondItem="iHW-JM-dAK" secondAttribute="centerX" constant="1" id="mFe-yN-N7c"/>
+                                            <constraint firstAttribute="height" constant="25" id="t1f-Gi-XFT"/>
+                                            <constraint firstAttribute="width" constant="85" id="yxY-rg-5LQ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kiario" translatesAutoresizingMaskIntoConstraints="NO" id="rjv-aI-ixh">
+                                        <rect key="frame" x="209" y="49" width="157" height="87"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="87" id="QX3-NZ-T3w"/>
+                                            <constraint firstAttribute="width" constant="157" id="iT9-S3-88Q"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы доберетесь до машины за:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3p-LN-iSH">
+                                        <rect key="frame" x="16" y="73" width="120" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="yr8-Ar-2Cn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="11"/>
+                                        <color key="textColor" name="LabelGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 минуты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFR-ZF-QpK">
+                                        <rect key="frame" x="16" y="103" width="73.5" height="20"/>
+                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Топливо:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQ7-sb-pwa">
+                                        <rect key="frame" x="16" y="119.5" width="59.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="14"/>
+                                        <color key="textColor" name="LabelGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdH-7Q-POM">
+                                        <rect key="frame" x="83.5" y="119.5" width="30" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="2C0-Cb-okS"/>
-                                    <constraint firstItem="Dwf-34-3qV" firstAttribute="centerY" secondItem="XAC-eB-Ubg" secondAttribute="centerY" id="Kri-89-alo"/>
-                                    <constraint firstItem="Dwf-34-3qV" firstAttribute="centerX" secondItem="XAC-eB-Ubg" secondAttribute="centerX" id="R7E-WF-vhs"/>
+                                    <constraint firstItem="H3p-LN-iSH" firstAttribute="top" secondItem="3En-e0-p1z" secondAttribute="bottom" constant="20" id="4dZ-BL-EMs"/>
+                                    <constraint firstAttribute="trailing" secondItem="iHW-JM-dAK" secondAttribute="trailing" constant="16" id="7sq-kx-6oF"/>
+                                    <constraint firstItem="iHW-JM-dAK" firstAttribute="top" secondItem="1h4-Yj-GIJ" secondAttribute="top" constant="10" id="8L7-xs-TOn"/>
+                                    <constraint firstAttribute="trailing" secondItem="rjv-aI-ixh" secondAttribute="trailing" constant="8" id="ACJ-ed-fsf"/>
+                                    <constraint firstItem="3En-e0-p1z" firstAttribute="top" secondItem="ETz-iG-I6u" secondAttribute="bottom" constant="4" id="COA-vo-cCn"/>
+                                    <constraint firstItem="HFR-ZF-QpK" firstAttribute="top" secondItem="H3p-LN-iSH" secondAttribute="bottom" constant="4" id="FCa-dW-zn8"/>
+                                    <constraint firstItem="bQ7-sb-pwa" firstAttribute="leading" secondItem="1h4-Yj-GIJ" secondAttribute="leading" constant="16" id="I4L-Gl-cKM"/>
+                                    <constraint firstAttribute="bottom" secondItem="rjv-aI-ixh" secondAttribute="bottom" constant="8" id="P8f-ff-LZB"/>
+                                    <constraint firstItem="HFR-ZF-QpK" firstAttribute="leading" secondItem="1h4-Yj-GIJ" secondAttribute="leading" constant="16" id="Ugv-3Q-sAC"/>
+                                    <constraint firstItem="cdH-7Q-POM" firstAttribute="leading" secondItem="bQ7-sb-pwa" secondAttribute="trailing" constant="8" symbolic="YES" id="YZo-LN-guk"/>
+                                    <constraint firstItem="3En-e0-p1z" firstAttribute="leading" secondItem="ETz-iG-I6u" secondAttribute="leading" id="aSt-86-KIh"/>
+                                    <constraint firstAttribute="bottom" secondItem="bQ7-sb-pwa" secondAttribute="bottom" constant="8" id="cxG-gS-Tsc"/>
+                                    <constraint firstItem="ETz-iG-I6u" firstAttribute="top" secondItem="1h4-Yj-GIJ" secondAttribute="top" constant="16" id="j3d-eM-jnC"/>
+                                    <constraint firstItem="ETz-iG-I6u" firstAttribute="leading" secondItem="1h4-Yj-GIJ" secondAttribute="leading" constant="16" id="pAV-WT-dmM"/>
+                                    <constraint firstAttribute="height" constant="144" id="qPm-4j-cRS"/>
+                                    <constraint firstItem="cdH-7Q-POM" firstAttribute="bottom" secondItem="bQ7-sb-pwa" secondAttribute="bottom" id="qpS-pR-h06"/>
+                                    <constraint firstItem="H3p-LN-iSH" firstAttribute="leading" secondItem="1h4-Yj-GIJ" secondAttribute="leading" constant="16" id="xyw-Lf-Vlx"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwP-v1-wW7">
-                                <rect key="frame" x="0.0" y="64" width="414" height="798"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ул. Горького 88, корпус 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGq-ZU-itN">
+                                <rect key="frame" x="16" y="219" width="382" height="13"/>
+                                <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="11"/>
+                                <color key="textColor" name="LabelGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhI-EA-ElT" customClass="DesignableView" customModule="Movity" customModuleProvider="target">
+                                <rect key="frame" x="20" y="240" width="374" height="130"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 руб/мин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR8-HO-6Xy">
+                                        <rect key="frame" x="16" y="16" width="350" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="GHK-zd-OmU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бесплатное ожидание - 5 минут" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNa-2N-Ct4">
+                                        <rect key="frame" x="38" y="66" width="350" height="17.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="E3u-px-Qsp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfQ-xo-8bX" customClass="DesignableView" customModule="Movity" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="68" width="14" height="14"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="JaR-Pd-MDT"/>
+                                            <constraint firstAttribute="height" constant="14" id="rfm-Ne-aen"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58W-xy-wzA" customClass="DesignableView" customModule="Movity" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="92" width="14" height="14"/>
+                                        <color key="backgroundColor" red="0.92161182449070933" green="0.73431172404255896" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="YMw-C9-fJO"/>
+                                            <constraint firstAttribute="height" constant="14" id="iBg-EB-J06"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ожидание - 10 руб/мин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NW6-Op-Tlm">
+                                        <rect key="frame" x="38" y="90.5" width="350" height="17.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="Va6-cG-EWS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstItem="CfQ-xo-8bX" firstAttribute="leading" secondItem="rR8-HO-6Xy" secondAttribute="leading" id="8g4-Dc-LAM"/>
+                                    <constraint firstItem="NNa-2N-Ct4" firstAttribute="top" secondItem="rR8-HO-6Xy" secondAttribute="bottom" constant="24" id="AFf-Dw-FmU"/>
+                                    <constraint firstItem="NW6-Op-Tlm" firstAttribute="leading" secondItem="58W-xy-wzA" secondAttribute="trailing" constant="8" symbolic="YES" id="DQ7-nn-DBZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="58W-xy-wzA" secondAttribute="bottom" constant="24" id="Eye-ge-gxu"/>
+                                    <constraint firstAttribute="width" constant="374" id="GT1-Rq-d7R"/>
+                                    <constraint firstItem="rR8-HO-6Xy" firstAttribute="leading" secondItem="dhI-EA-ElT" secondAttribute="leading" constant="16" id="MN9-eQ-E0T"/>
+                                    <constraint firstItem="CfQ-xo-8bX" firstAttribute="centerY" secondItem="NNa-2N-Ct4" secondAttribute="centerY" id="USx-qo-soy"/>
+                                    <constraint firstItem="NNa-2N-Ct4" firstAttribute="leading" secondItem="CfQ-xo-8bX" secondAttribute="trailing" constant="8" id="ZxR-jk-aWM"/>
+                                    <constraint firstAttribute="height" constant="130" id="iag-le-7My"/>
+                                    <constraint firstItem="58W-xy-wzA" firstAttribute="leading" secondItem="dhI-EA-ElT" secondAttribute="leading" constant="16" id="lIv-gD-dOa"/>
+                                    <constraint firstItem="rR8-HO-6Xy" firstAttribute="top" secondItem="dhI-EA-ElT" secondAttribute="top" constant="16" id="n8P-B6-WXp"/>
+                                    <constraint firstItem="58W-xy-wzA" firstAttribute="centerY" secondItem="NW6-Op-Tlm" secondAttribute="centerY" id="sM5-zQ-iNa"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plt-P6-Kph" customClass="DesignableButton" customModule="Movity" customModuleProvider="target">
+                                <rect key="frame" x="16" y="386" width="382" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="JzD-xb-hSC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Забронировать"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onRentButtonTouched:" destination="0ZF-Va-wQS" eventType="touchUpInside" id="EgW-rm-dit"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="MY3-Lf-7vZ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="qIG-JV-WZV"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="MY3-Lf-7vZ" firstAttribute="trailing" secondItem="XAC-eB-Ubg" secondAttribute="trailing" id="3wK-O1-NPq"/>
-                            <constraint firstItem="MY3-Lf-7vZ" firstAttribute="bottom" secondItem="XwP-v1-wW7" secondAttribute="bottom" id="B1i-Ft-xBk"/>
-                            <constraint firstItem="XwP-v1-wW7" firstAttribute="top" secondItem="XAC-eB-Ubg" secondAttribute="bottom" id="Je3-Yl-TRV"/>
-                            <constraint firstItem="XAC-eB-Ubg" firstAttribute="leading" secondItem="MY3-Lf-7vZ" secondAttribute="leading" id="OZN-yw-t2O"/>
-                            <constraint firstItem="XAC-eB-Ubg" firstAttribute="top" secondItem="MY3-Lf-7vZ" secondAttribute="top" id="V3h-U0-XuV"/>
-                            <constraint firstItem="MY3-Lf-7vZ" firstAttribute="trailing" secondItem="XwP-v1-wW7" secondAttribute="trailing" id="W4q-U9-nGT"/>
-                            <constraint firstItem="XwP-v1-wW7" firstAttribute="leading" secondItem="MY3-Lf-7vZ" secondAttribute="leading" id="ki4-Px-w2B"/>
+                            <constraint firstItem="zGq-ZU-itN" firstAttribute="leading" secondItem="qIG-JV-WZV" secondAttribute="leading" constant="16" id="1EX-Oc-1rC"/>
+                            <constraint firstItem="plt-P6-Kph" firstAttribute="centerX" secondItem="qIG-JV-WZV" secondAttribute="centerX" id="8Vz-ZX-MhR"/>
+                            <constraint firstItem="dhI-EA-ElT" firstAttribute="top" secondItem="zGq-ZU-itN" secondAttribute="bottom" constant="8" id="BPj-gv-SZv"/>
+                            <constraint firstItem="plt-P6-Kph" firstAttribute="top" secondItem="dhI-EA-ElT" secondAttribute="bottom" constant="16" id="CwW-ot-07O"/>
+                            <constraint firstItem="zGq-ZU-itN" firstAttribute="top" secondItem="1h4-Yj-GIJ" secondAttribute="bottom" constant="8" id="IEQ-Zg-y2Z"/>
+                            <constraint firstItem="TpW-H0-apC" firstAttribute="top" secondItem="qIG-JV-WZV" secondAttribute="top" constant="10" id="Ojz-fp-Ipv"/>
+                            <constraint firstItem="dhI-EA-ElT" firstAttribute="centerX" secondItem="qIG-JV-WZV" secondAttribute="centerX" id="Pgn-NU-gOH"/>
+                            <constraint firstItem="TpW-H0-apC" firstAttribute="centerX" secondItem="qIG-JV-WZV" secondAttribute="centerX" id="RSn-Gr-sjf"/>
+                            <constraint firstItem="qIG-JV-WZV" firstAttribute="trailing" secondItem="zGq-ZU-itN" secondAttribute="trailing" constant="16" id="Ygo-PX-OVz"/>
+                            <constraint firstItem="1h4-Yj-GIJ" firstAttribute="top" secondItem="TpW-H0-apC" secondAttribute="bottom" constant="10" id="gdG-BJ-Kvv"/>
+                            <constraint firstItem="qIG-JV-WZV" firstAttribute="trailing" secondItem="plt-P6-Kph" secondAttribute="trailing" constant="16" id="hxl-7M-VtB"/>
+                            <constraint firstItem="1h4-Yj-GIJ" firstAttribute="centerX" secondItem="qIG-JV-WZV" secondAttribute="centerX" id="pIv-ql-NAD"/>
+                            <constraint firstItem="plt-P6-Kph" firstAttribute="leading" secondItem="qIG-JV-WZV" secondAttribute="leading" constant="16" id="pr1-Bs-8ar"/>
+                            <constraint firstItem="1h4-Yj-GIJ" firstAttribute="leading" secondItem="qIG-JV-WZV" secondAttribute="leading" constant="20" id="sMO-u9-PgZ"/>
+                            <constraint firstItem="qIG-JV-WZV" firstAttribute="trailing" secondItem="1h4-Yj-GIJ" secondAttribute="trailing" constant="20" id="xhG-HP-ny9"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contentView" destination="XwP-v1-wW7" id="Xr0-jX-vGx"/>
-                        <outlet property="handleArea" destination="XAC-eB-Ubg" id="NZ8-AW-oUo"/>
+                        <outlet property="addressLabel" destination="zGq-ZU-itN" id="Wu3-ed-8hG"/>
+                        <outlet property="costForWaitingTimeLabel" destination="NW6-Op-Tlm" id="KHp-xJ-PwU"/>
+                        <outlet property="costPerMinuteLabel" destination="rR8-HO-6Xy" id="xxD-ee-MHk"/>
+                        <outlet property="freeWaitingTimeLabel" destination="NNa-2N-Ct4" id="0ti-sx-pph"/>
+                        <outlet property="fuelTitleLabel" destination="bQ7-sb-pwa" id="lGT-EG-rmF"/>
+                        <outlet property="idLabel" destination="1Az-Oe-Ay7" id="gFj-zt-83c"/>
+                        <outlet property="modelLabel" destination="ETz-iG-I6u" id="0cq-mM-nEv"/>
+                        <outlet property="percentFuelLabel" destination="cdH-7Q-POM" id="gaD-Qw-9sw"/>
+                        <outlet property="timeToVehicleLabel" destination="HFR-ZF-QpK" id="77w-QR-k5d"/>
+                        <outlet property="timeToVehicleTitleLabel" destination="H3p-LN-iSH" id="arK-Gy-gQa"/>
+                        <outlet property="typeLabel" destination="3En-e0-p1z" id="XWQ-cI-hld"/>
+                        <outlet property="vehicleImageView" destination="rjv-aI-ixh" id="9tN-kq-Dun"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dsf-aC-ReB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRh-bR-9tF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231.8840579710145" y="128.57142857142856"/>
+            <point key="canvasLocation" x="6834.7826086956529" y="4535.4910714285716"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="plt-P6-Kph">
+            <size key="intrinsicContentSize" width="123" height="33"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="bottom_sheet_upper" width="28" height="3"/>
+        <image name="kiario" width="698" height="397"/>
+        <namedColor name="LabelGray">
+            <color red="0.42745098039215684" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

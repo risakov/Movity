@@ -16,6 +16,7 @@ class RegistrationConfigurator {
         let presenter = RegistrationPresenterImp(
             view,
             router,
+            DI.resolve(),
             DI.resolve()
         )
         view.presenter = presenter

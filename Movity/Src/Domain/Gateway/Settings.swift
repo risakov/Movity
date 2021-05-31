@@ -7,8 +7,7 @@ protocol AllUsersSettings {
 
 protocol Settings: class {
     var token: TokenEntity? { get set }
-    var account: UserEntity? { get set }
-    var accountsSuiteNames: [String]? { get set }
-
+    var user: UserEntity? { get set }
+    
     func clearUserData()
 }

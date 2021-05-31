@@ -18,9 +18,17 @@ class MainMapRouter: BaseRouter {
         self.view = view
     }
     
-    func openSomeScene() {
-        if let navController = self.view.navigationController {
-            //  SomeSceneConfigurator.open(navigationController: navController)
-        }
+    func showBottomSheet(
+        view: BottomSheetViewController,
+        currentVehicle: VehicleEntity,
+        vehicles: [VehicleEntity],
+        delegate: MainMapDelegate
+    ) {
+        BottomSheetConfiguratorImp.open(
+            view: view,
+            currentVehicle: currentVehicle,
+            vehicles: vehicles,
+            delegate: delegate
+        )
     }
 }

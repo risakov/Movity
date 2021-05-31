@@ -14,6 +14,7 @@ class MainMapConfigurator {
     func configure(view: MainMapViewController) {
         let router = MainMapRouter(view)
         let presenter = MainMapPresenterImp(view, router)
+        view.dataSource = BottomSheetDataSource()
         view.presenter = presenter
     }
 

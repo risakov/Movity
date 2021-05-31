@@ -4,11 +4,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothaProReg.otf">
+            <string>GothamPro</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Registration View Controller-->
         <scene sceneID="eMz-tY-h75">
@@ -28,7 +32,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="350" placeholderIntrinsicHeight="76" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s6u-oD-Dsu">
-                                                        <rect key="frame" x="0.0" y="20" width="414" height="689"/>
+                                                        <rect key="frame" x="0.0" y="20" width="414" height="614"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Us7-24-D2n" userLabel="Title View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -39,8 +43,8 @@
                                                                             <constraint firstAttribute="width" constant="248" id="1XF-yy-jg2"/>
                                                                             <constraint firstAttribute="height" constant="34" id="h2N-gY-O5m"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                        <color key="textColor" name="VioletLight"/>
+                                                                        <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="30"/>
+                                                                        <color key="textColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -151,33 +155,8 @@
                                                                     <constraint firstItem="yST-mt-8mE" firstAttribute="top" secondItem="lCl-In-C1D" secondAttribute="top" id="iEu-tz-xON"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Avn-25-kBq" userLabel="City View">
-                                                                <rect key="frame" x="0.0" y="360" width="414" height="65"/>
-                                                                <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Город" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZlI-Ih-pjS" userLabel="Имя" customClass="MFTextField">
-                                                                        <rect key="frame" x="16" y="0.0" width="382" height="65"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="65" id="Vga-pz-SBl"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
-                                                                                <color key="value" red="0.9339286685" green="0.0040137292820000003" blue="0.010972091" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </textField>
-                                                                </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstItem="ZlI-Ih-pjS" firstAttribute="top" secondItem="Avn-25-kBq" secondAttribute="top" id="5SJ-eQ-W5T"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="ZlI-Ih-pjS" secondAttribute="trailing" constant="16" id="Ogt-pU-iLf"/>
-                                                                    <constraint firstItem="ZlI-Ih-pjS" firstAttribute="leading" secondItem="Avn-25-kBq" secondAttribute="leading" constant="16" id="Qf8-oK-e2M"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="ZlI-Ih-pjS" secondAttribute="bottom" id="XcA-k9-iXw"/>
-                                                                </constraints>
-                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6K-Ht-NIN" userLabel="Password View">
-                                                                <rect key="frame" x="0.0" y="435" width="414" height="65"/>
+                                                                <rect key="frame" x="0.0" y="360" width="414" height="65"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zlv-Bc-w1N" customClass="MFTextField">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="65"/>
@@ -202,7 +181,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHt-aX-dju" userLabel="Confirm Password View">
-                                                                <rect key="frame" x="0.0" y="510" width="414" height="65"/>
+                                                                <rect key="frame" x="0.0" y="435" width="414" height="65"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Подтвердите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKU-Ga-b82" customClass="MFTextField">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="65"/>
@@ -227,14 +206,14 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EnL-ym-WRO" userLabel="Vertical Padding">
-                                                                <rect key="frame" x="0.0" y="585" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="510" width="414" height="50"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="wJt-y5-MAW"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GV-gQ-sYs" userLabel="Next Button">
-                                                                <rect key="frame" x="0.0" y="645" width="414" height="44"/>
+                                                                <rect key="frame" x="0.0" y="570" width="414" height="44"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wut-v1-ddH" customClass="MTYDesignableButton" customModule="Movity" customModuleProvider="target">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="44"/>
@@ -265,10 +244,8 @@
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="hmv-og-96r" secondAttribute="trailing" id="0A6-G1-3qm"/>
-                                                            <constraint firstItem="Avn-25-kBq" firstAttribute="leading" secondItem="s6u-oD-Dsu" secondAttribute="leading" id="2XX-ZO-9wW"/>
                                                             <constraint firstAttribute="trailing" secondItem="EnL-ym-WRO" secondAttribute="trailing" id="DAk-Wo-n27"/>
                                                             <constraint firstAttribute="trailing" secondItem="nSP-Wp-ikN" secondAttribute="trailing" id="HkD-qd-QhN"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Avn-25-kBq" secondAttribute="trailing" id="IcQ-1V-XUk"/>
                                                             <constraint firstItem="lCl-In-C1D" firstAttribute="leading" secondItem="s6u-oD-Dsu" secondAttribute="leading" id="Ke4-BU-3V4"/>
                                                             <constraint firstAttribute="trailing" secondItem="lCl-In-C1D" secondAttribute="trailing" id="Lgx-NN-9lP"/>
                                                             <constraint firstAttribute="trailing" secondItem="3GV-gQ-sYs" secondAttribute="trailing" id="NCr-zP-VbD"/>
@@ -326,7 +303,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cityTextField" destination="ZlI-Ih-pjS" id="Db6-j7-EAX"/>
                         <outlet property="confirmPasswordTextField" destination="DKU-Ga-b82" id="87e-6w-XFG"/>
                         <outlet property="emailTextField" destination="jlU-Bf-3bD" id="nQX-HT-MUf"/>
                         <outlet property="lastnameTextField" destination="Id7-o6-Dt2" id="16o-9p-eY3"/>
@@ -351,9 +327,6 @@
         <designable name="Wut-v1-ddH">
             <size key="intrinsicContentSize" width="45" height="30"/>
         </designable>
-        <designable name="ZlI-Ih-pjS">
-            <size key="intrinsicContentSize" width="68.5" height="34"/>
-        </designable>
         <designable name="Zlv-Bc-w1N">
             <size key="intrinsicContentSize" width="78" height="34"/>
         </designable>
@@ -368,9 +341,6 @@
         </designable>
     </designables>
     <resources>
-        <namedColor name="VioletLight">
-            <color red="0.85098039215686272" green="0.60784313725490191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

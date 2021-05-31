@@ -1,27 +1,52 @@
-//
-//  BottomSheetConfigurator.swift
-//  Movity
-//
-//  Created by Роман on 08.04.2021.
-//  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
-//
-//  Cheeezcake Template Inc.
-//
-
 import UIKit
+import RxNetworkApiClient
 
-class BottomSheetConfigurator {
-    func configure(view: BottomSheetViewController) {
+protocol BottomSheetConfigurator {
+    
+    static func configure(
+        view: BottomSheetViewController,
+        currentVehicle: VehicleEntity,
+        vehicles: [VehicleEntity],
+        delegate: MainMapDelegate
+    )
+}
+
+class BottomSheetConfiguratorImp: BottomSheetConfigurator {
+    
+    static func configure(
+        view: BottomSheetViewController,
+        currentVehicle: VehicleEntity,
+        vehicles: [VehicleEntity],
+        delegate: MainMapDelegate
+    ) {
         let router = BottomSheetRouter(view)
-        let presenter = BottomSheetPresenterImp(view, router)
+        let presenter = BottomSheetPresenterImp(
+            view,
+            router,
+            currentVehicle,
+            vehicles,
+            delegate
+        )
         view.presenter = presenter
     }
 
-    static func open(navigationController: UINavigationController) {
-        guard let view = R.storyboard.bottomSheetStoryboard.instantiateInitialViewController() else {
-            return
-        }
-        BottomSheetConfigurator().configure(view: view)
-        navigationController.pushViewController(view, animated: true)
+    static func open(
+        view: BottomSheetViewController,
+        currentVehicle: VehicleEntity,
+        vehicles: [VehicleEntity],
+        delegate: MainMapDelegate
+    ) {
+        // Мы здесь не делаем show экрана каждый раз, а просто устанавливаем новые данные для Bottom Sheet
+        BottomSheetConfiguratorImp.configure(
+            view: view,
+            currentVehicle: currentVehicle,
+            vehicles: vehicles,
+            delegate: delegate)
     }
+    
+    static func getVC() -> BottomSheetViewController {
+        let viewController = R.storyboard.bottomSheetStoryboard.instantiateInitialViewController()!
+        return viewController
+    }
+    
 }

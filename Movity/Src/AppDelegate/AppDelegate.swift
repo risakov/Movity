@@ -1,6 +1,8 @@
 import UIKit
 import DBDebugToolkit
 import YandexMapsMobile
+import Firebase
+import ProgressHUD
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,10 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         DBDebugToolkit.setup(with: [DBShakeTrigger()])
         #endif
+        FirebaseApp.configure()
         
         YMKMapKit.setApiKey(MAPKIT_API_KEY)
         YMKMapKit.setLocale("ru_RU")
 
+        ProgressHUD.colorHUD(R.color.violetLight()!)
+        
         DI.initBackgroundDependencies()
         DI.initDependencies(self)
         self.settings = DI.resolve()
@@ -29,17 +34,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func openRootScreen() {
+    func openLoginScreen() {
         if let window = self.window, window.rootViewController == nil || !(window.rootViewController?.restorationIdentifier == "firstNavigationController") {
             UIView.transition(with: window, duration: 0, options: .transitionCrossDissolve, animations: {
                 window.rootViewController = R.storyboard.loginStoryboard.instantiateInitialViewController()!
             })
         }
     }
+    
+    func openRootScreen() {
+        func openLoginScreen() {
+            if let window = self.window, window.rootViewController == nil || !(window.rootViewController?.restorationIdentifier == "firstNavigationController") {
+                UIView.transition(with: window, duration: 0, options: .transitionCrossDissolve, animations: {
+                    let rootView = R.storyboard.root.rootVC()!
+                    window.rootViewController = R.storyboard.root.rootVC()!
+                    rootView.openMainMapScene()
+                })
+            }
+        }
+    }
 
     func checkAuthorizationAndOpenLoginScreen(window: UIWindow?) {
         self.window = window
-        self.openRootScreen()
+        Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
+            guard let self = self else { return }
+            
+            if user == nil {
+                self.openLoginScreen()
+            } else {
+                self.openRootScreen()
+            }
+        }
     }
     
     // MARK: UISceneSession Lifecycle

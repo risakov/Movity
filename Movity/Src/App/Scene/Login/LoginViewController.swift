@@ -14,44 +14,57 @@ class LoginViewController: UIViewController, LoginView {
     @IBOutlet weak var passwordTextField: MFTextField!
     @IBOutlet weak var usernameTextField: MFTextField!
     @IBAction func onLoginButtonClick(_ sender: Any) {
-        self.checkTextFieldsAndLogIn()
+        checkTextFieldsAndLogIn()
     }
     @IBAction func createAccount(_ sender: Any) {
-        self.presenter.openRegistrationScene()
+        presenter.openRegistrationScene()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         LoginConfigurator().configure(view: self)
-        self.prepareTextFields()
-        self.hideKeyboardWhenTappedAround()
+        
+        prepareTextFields()
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.updateLoginButtonState()
+        
+        prepareNavigationBar()
+        updateLoginButtonState()
+    }
+    
+    func prepareNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
     }
     
     func prepareTextFields() {
-        self.usernameTextField.delegate = self
-        self.passwordTextField.delegate = self
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         
-        self.usernameTextField.placeholderFont = UIFont.systemFont(ofSize: 13)
-        self.usernameTextField.placeholderColor = .lightGray
-        self.usernameTextField.addDoneButtonOnKeyboard()
+        usernameTextField.tintColor = R.color.violetLight()!
+        usernameTextField.placeholderFont = UIFont.systemFont(ofSize: 13)
+        usernameTextField.placeholderColor = .lightGray
+        usernameTextField.addDoneButtonOnKeyboard()
         
-        self.passwordTextField.placeholderFont = UIFont.systemFont(ofSize: 13)
-        self.passwordTextField.placeholderColor = .lightGray
-        self.passwordTextField.addDoneButtonOnKeyboard()
+        passwordTextField.tintColor = R.color.violetLight()!
+        passwordTextField.placeholderFont = UIFont.systemFont(ofSize: 13)
+        passwordTextField.placeholderColor = .lightGray
+        passwordTextField.addDoneButtonOnKeyboard()
     }
     
     func updateLoginButtonState() {
-        guard !self.usernameTextField.text.isEmptyOrNil &&
-                !self.passwordTextField.text.isEmptyOrNil else {
-            self.loginButton.isEnabled = false
+        guard !usernameTextField.text.isEmptyOrNil &&
+                !passwordTextField.text.isEmptyOrNil else {
+            loginButton.isEnabled = false
             return
         }
-        self.loginButton.isEnabled = true
+        loginButton.isEnabled = true
     }
     
     func checkTextFieldsAndLogIn() {
@@ -60,33 +73,40 @@ class LoginViewController: UIViewController, LoginView {
         var hasErrors = false
 
         do {
-            username = try self.validateUsername()
+            username = try validateUsername()
         } catch let error {
-            self.usernameTextField.setError(error, animated: true)
+            usernameTextField.setError(error, animated: true)
             hasErrors = true
         }
         
         do {
-            password = try self.validatePassword()
+            password = try validatePassword()
         } catch let error {
-            self.passwordTextField.setError(error, animated: true)
+            passwordTextField.setError(error, animated: true)
             hasErrors = true
         }
         
         guard !hasErrors else {
             let message = "Пожалуйста, проверьте введенные данные."
-            self.showErrorDialog(message: message)
+            showErrorDialog(message: message)
             return
         }
-        self.presenter.signIn(username: username, password: password)
+        presenter.signIn(username: username, password: password)
     }
     
     func validateUsername() throws -> String {
-        guard let username = self.usernameTextField.text,
-              username.removeWhitespace() != "" else {
-            throw ErrorForTextField.loginFieldIsEmpty
+        var username = self.usernameTextField.text
+        guard let validUsername = username,
+              !validUsername.isEmpty else {
+            throw ErrorForTextField.emailFieldIsEmpty
         }
-        return username
+        guard validUsername.isValidEmail else {
+            throw ErrorForTextField.incorrectEmail
+        }
+        
+        username = validUsername
+        
+        return username!
     }
     
     func validatePassword() throws -> String {
@@ -94,15 +114,20 @@ class LoginViewController: UIViewController, LoginView {
               password.removeWhitespace() != "" else {
             throw ErrorForTextField.passwordFieldIsEmpty
         }
+        
+        guard password.count >= 6 else {
+            throw ErrorForTextField.passwordFieldIsTooShort
+        }
+        
         return password
     }
     
     func startAnimationOnLoginButton() {
-        self.loginButton.startLoadingAnimation()
+        loginButton.startLoadingAnimation()
     }
     
     func stopAnimationOnLoginButton() {
-        self.loginButton.stopLoadingAnimation()
+        loginButton.stopLoadingAnimation()
     }
 }
 
@@ -115,18 +140,18 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.updateLoginButtonState()
+        updateLoginButtonState()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         switch textField {
-        case self.usernameTextField:
-            self.passwordTextField.becomeFirstResponder()
+        case usernameTextField:
+            passwordTextField.becomeFirstResponder()
             
-        case self.passwordTextField:
+        case passwordTextField:
             textField.resignFirstResponder()
-            self.onLoginButtonClick((Any).self)
+            onLoginButtonClick((Any).self)
             
         default:
             textField.resignFirstResponder()

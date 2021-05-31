@@ -1,5 +1,7 @@
 import Foundation
 import RxSwift
+import Firebase
+import ProgressHUD
 
 protocol LoginPresenter {
     func openRegistrationScene()
@@ -25,16 +27,21 @@ class LoginPresenterImp: LoginPresenter {
     }
     
     func signIn(username: String, password: String) {
-        self.loginUseCase.loginIn(username, password)
-            .observeOn(MainScheduler.instance)
-            .do(onSubscribe: { [weak self] in self?.view.showActivityIndicator() },
-                onDispose: { [weak self] in self?.view.hideActivityIndicator() })
-            .subscribe(onCompleted: {},
-                       onError: { [weak self] (error) in
-                    self?.view.hideActivityIndicator()
-                    self?.view.showDialog(message: error.localizedDescription)
-            })
-            .disposed(by: disposeBag)
+        ProgressHUD.show()
+        Auth.auth().signIn(
+            withEmail: username,
+            password: password,
+            completion: { [weak self] (_, error) in
+                guard let self = self else { return }
+                
+                if error == nil {
+                    self.router.openMainScene()
+                    ProgressHUD.dismiss()
+                } else {
+                    self.view.showErrorDialog(message: error!.localizedDescription)
+                    ProgressHUD.dismiss()
+                }
+        })
     }
     
     func openRegistrationScene() {

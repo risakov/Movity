@@ -11,7 +11,7 @@ class LocalSettings: Settings {
         }
     }
 
-    var account: UserEntity? {
+    var user: UserEntity? {
         get {
             return self.userDefaults.read(UserDefaultsKey.account)
         }
@@ -20,15 +20,6 @@ class LocalSettings: Settings {
         }
     }
     
-    var accountsSuiteNames: [String]? {
-        get {
-            return self.userDefaults.read(UserDefaultsKey.accountsSuiteNames)
-        }
-        set(value) {
-            self.userDefaults.saveData(UserDefaultsKey.accountsSuiteNames, value)
-        }
-    }
-
     private let userDefaults: UserDefaultsSettings
 
     init(userDefaults: UserDefaultsSettings) {
@@ -37,7 +28,7 @@ class LocalSettings: Settings {
 
     func clearUserData() {
         self.token = nil
-        self.account = nil
+        self.user = nil
         self.userDefaults.resetUserDefaults()
     }
 }
